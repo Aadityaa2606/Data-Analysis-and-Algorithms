@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Me</title>
+  <style>
+    /* Add some styling for the page */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: linear-gradient(45deg, #49a09d, #5f2c82);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+    }
+
+    /* Add a class for the contact form */
+    .contact-form {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style the form elements */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      height: 150px;
+    }
+
+    .contact-form input[type="submit"] {
+      background: #5f2c82;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input[type="submit"]:hover {
+      background: #49a09d;
+    }
+
+    /* Add some styling for the social media links */
+    .social-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: #333;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #49a09d;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- Add the contact form -->
+  <div class="contact-form">
+    <h1>Contact Me</h1>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message" required></textarea>
+      <input type="submit" value="Send">
+    </form>
+    <!-- Add the social media links -->
+    <div class="social-links">
+      <a href="#" target="_blank"><i class="fab
