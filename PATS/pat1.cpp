@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 using namespace std;
 
@@ -68,6 +69,7 @@ public:
 int main()
 {
     int n;
+    // cout << "Enter the number of components: ";
     cin >> n;
     vector<components> elements;
     components ele, max_cost;
@@ -75,8 +77,11 @@ int main()
         cin >> ele;
         elements.push_back(ele);
     }
+    clock_t start = clock();
     max_cost = max_cost.max(elements, 0, n-1);
-    cout << max_cost;
+    double f_time = (double)(clock()-start)/CLOCKS_PER_SEC;
+    cout << max_cost << endl; 
+    cout << "Time Taken = " << f_time;
     return 0;
 }
 

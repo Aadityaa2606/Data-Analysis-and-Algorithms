@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int main() {
@@ -6,6 +7,7 @@ int main() {
     cin >> n;
     int arr[n];
     for(int i=0; i<n; i++) cin >> arr[i];
+    clock_t t_start = clock();
     for(int j=0; j<n; j++) {
         int min=arr[j];
         int min_idx=j;
@@ -20,6 +22,8 @@ int main() {
         arr[j] = min;
         arr[min_idx] = temp;
     }
+    clock_t t_end = clock();
+    cout << "Time taken: " << (t_end-t_start)/(double)CLOCKS_PER_SEC << " seconds" << endl;
     for(const int &i : arr) cout << i << ' ';
     return 0;
 }
