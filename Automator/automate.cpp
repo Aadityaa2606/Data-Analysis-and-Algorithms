@@ -6,28 +6,30 @@
 #include <fstream>
 using namespace std;
 
-int maximum(int a, int b)
-{    
-    if(a>b)
-        return a;
-    return b;
-}
-int bottom_up_cut_rod(vector<int> p, int length)
-{    
-    vector<int> r(100,0);
-    int i,q,j;
-    r[0] = 0;
-    for (j=1;j<=length;j++)
-    {
-        q = INT_MIN;
-        for(i=1;i<=j;i++)
-        {
-            q = maximum(q,p[i-1]+r[j-i]);
-        }
-        r[j] = q;
+int find_in(vector<vector<int>>& memo, vector<int>& p, int i, int j) {
+    if (memo[i][j] > -1) {
+        return memo[i][j];
     }
-    return r[length];
+    if (i == j) {
+        memo[i][j] = 0;
+    } else {
+        memo[i][j] = numeric_limits<int>::max();
+        for (int k = i; k < j; k++) {
+            int q = find_in(memo, p, i, k) + find_in(memo, p, k + 1, j) + p[i] * p[k+1] * p[j+1];
+            if (q < memo[i][j]) {
+                memo[i][j] = q;
+            }
+        }
+    }
+    return memo[i][j];
 }
+
+int matrix_chain_order(vector<int> p) {
+    int n = p.size() - 1;
+    vector<vector<int>> memo(n, vector<int>(n, -1));
+    return find_in(memo, p, 0, n - 1);
+}
+
 // UTILITY FUNCTONS
 
 vector<vector<int>> generateRandomNumbers(const vector<int>& kNumbers) {
@@ -54,7 +56,7 @@ vector<long double> timeTaken(const vector<vector<int>>& allNumbers) {
     for (const auto& numbers : allNumbers) {
         clock_t start = clock();
         int temp;
-        temp = bottom_up_cut_rod(numbers,numbers.size());
+        temp = matrix_chain_order(numbers);
         cout<<"Cost for n" << numbers.size() << " = " << temp << endl;
         long double duration=(long double)(clock() - start)/CLOCKS_PER_SEC;
         timeTaken.push_back(duration);
