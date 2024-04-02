@@ -1,2 +1,1 @@
-# DAA_Practice
-Contains the practice and the assignment solutions 
+# Lab Experiments on Design and analysis of algorithms
