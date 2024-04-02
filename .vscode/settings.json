@@ -1,8 +1,0 @@
-{
-    "python.formatting.provider": "black",
-    "files.associations": {
-        "iosfwd": "cpp",
-        "iostream": "cpp",
-        "chrono": "cpp",
-    }
-}
